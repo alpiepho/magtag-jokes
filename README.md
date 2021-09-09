@@ -80,8 +80,9 @@ Using CP bootloader:
 Using bundle:
 - https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/download/20210903/adafruit-circuitpython-bundle-6.x-mpy-20210903.zip
 
-https://learn.adafruit.com/adafruit-magtag/overview<br>
-https://learn.adafruit.com/adafruit-magtag/shipping-demo<br>
-https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/download/20210903/adafruit-circuitpython-bundle-6.x-mpy-20210903.zip<br>
-https://learn.adafruit.com/google-graveyard-with-adafruit-magtag/code-the-google-graveyard<br>
-https://icanhazdadjoke.com/api<br>
+Other Links:
+- https://learn.adafruit.com/adafruit-magtag/overview
+- https://learn.adafruit.com/adafruit-magtag/shipping-demo
+- https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/download/20210903/adafruit-circuitpython-bundle-6.x-mpy-20210903.zip
+- https://learn.adafruit.com/google-graveyard-with-adafruit-magtag/code-the-google-graveyard
+- https://icanhazdadjoke.com/api
