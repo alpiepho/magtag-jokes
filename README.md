@@ -5,10 +5,15 @@ https://learn.adafruit.com/google-graveyard-with-adafruit-magtag/code-the-google
 
 https://icanhazdadjoke.com/api<br>
 
+
 Everyone needs a good bad-dad-joke, and what better way than a gadget like the Magtag on 
 the referidgerator to allow "sharing" them daily?
 
-TODO: photo here
+<br>
+<br>
+<img src="./machine1.jpg" width="300">
+<br>
+<br>
 
 Files:
 - code.py - main code file
