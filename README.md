@@ -7,7 +7,7 @@ https://icanhazdadjoke.com/api<br>
 
 
 Everyone needs a good bad-dad-joke, and what better way than a gadget like the Magtag on 
-the referidgerator to allow "sharing" them daily?
+the refridgerator to allow "sharing" them daily?
 
 <br>
 <br>
