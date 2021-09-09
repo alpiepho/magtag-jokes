@@ -55,7 +55,7 @@ the effect of disabling the buttons and leds.
 ## Learnings
 
 - Using e-Ink device is a challenge because it is slow to update
-- Connecting to web api is also a challenges, since it blocks the main loop 2-10 seconds
+- Connecting to web api is also a challenge, since it blocks the main loop 2-10 seconds
 
 ## TODO List
 
@@ -67,10 +67,10 @@ the effect of disabling the buttons and leds.
 - [done] fix fonts
 - [done] add next button to dad joke, enabled while awake
 - [done] add light button to dad joke
-- fix wake on button and use ligh sleep
+- [done] copy libs to repo
+- [done] finish repo and README
+- fix wake on button and use light sleep
 - set font based on string length
-- copy libs to repo
-- finish repo and README
 
 ## Reference
 
