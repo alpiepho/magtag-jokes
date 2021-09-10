@@ -156,7 +156,7 @@ while True:
         # put the board to sleep
         if sleep_level == 2:
             print("Deep sleep 1 minute")
-            MAGTAG.set_text(f"deep sleep: 1min", 3)
+            MAGTAG.set_text(f"sleep: 1min", 3)
             PAUSE = alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 60)
             MAGTAG.peripherals.neopixel_disable = True
             alarm.exit_and_deep_sleep_until_alarms(PAUSE)
