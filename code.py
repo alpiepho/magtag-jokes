@@ -115,7 +115,7 @@ while True:
             batt = min(batt, 4.2)
             batt = batt - 3.3
             batt = max(0.0, batt)
-            batt = 100 * batt / 4.2
+            batt = 100 * batt / (4.2 - 3.3)
             if batt < 10.0:
                 sleep_level = 2
             MAGTAG.set_text(f"battery: {batt:.0f}%", 1, False)
