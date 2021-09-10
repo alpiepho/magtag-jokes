@@ -75,7 +75,7 @@ MAGTAG.set_text("battery: ---%", 1, False)
 loops = 0
 count = 0
 light_count = 0
-sleep_level = 0  # TODO use level 1 if wake-from-button works
+sleep_level = 2
 default_jokes = ["We only tell these to our kids to help them learn...really!"]
 
 while True:
@@ -83,16 +83,18 @@ while True:
 
     # button A - next joke
     if MAGTAG.peripherals.button_a_pressed:
-        MAGTAG.set_text(f"next...", 3)
+        sleep_level = 0
         loops = -1
 
     # button B - default joke
     if MAGTAG.peripherals.button_b_pressed:
+        sleep_level = 0
         MAGTAG.set_text(default_jokes[0], 2, False)
-        MAGTAG.set_text(f"", 3)
+        MAGTAG.set_text(f"...", 3)
 
     # button D - night light
     if MAGTAG.peripherals.button_d_pressed:
+        sleep_level = 0
         if light_count == 0:
             light_count = 30
         else:
@@ -111,6 +113,8 @@ while True:
             batt = MAGTAG.peripherals.battery
             print(batt)
             batt = min(batt, 4.2)
+            batt = batt - 3.3
+            batt = max(0.0, batt)
             batt = 100 * batt / 4.2
             if batt < 10.0:
                 sleep_level = 2
@@ -122,14 +126,12 @@ while True:
         jokes = default_jokes
         try:
             from backup_jokes import backup_jokes
-
             jokes = backup_jokes
         except ImportError:
             print("Default backup_jokes.py not found on CIRCUITPY")
-            pass
         joke = jokes[random.randint(0, len(jokes) - 1)]
         MAGTAG.set_text(joke, 2, False)
-        MAGTAG.set_text(f"", 3)
+        MAGTAG.set_text(f".", 3)
 
     if loops > 0 and (loops % 60) == 0:
         try:
@@ -149,24 +151,12 @@ while True:
             print("Some error occured, retrying! -", e)
             joke = jokes[random.randint(0, len(jokes) - 1)]
             MAGTAG.set_text(joke, 2, False)
-            MAGTAG.set_text(f"", 3)
+            MAGTAG.set_text(f"..", 3)
 
         # put the board to sleep
-        if sleep_level == 1:
-            print("Light sleep 1 minute")
-            MAGTAG.set_text(f"online: {count}", 3)
-            PAUSE = alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 60)
-            MAGTAG.peripherals.neopixel_disable = True
-            alarm.light_sleep_until_alarms(PAUSE)
-            MAGTAG.peripherals.neopixel_disable = False
-            loops = 0
-            # TODO: complains that board.BUTTON_A in use
-            # BUTTONA = alarm.touch.TouchAlarm(pin=board.BUTTON_A)
-            # BUTTOND = alarm.touch.TouchAlarm(pin=board.BUTTON_D)
-            # alarm.light_sleep_until_alarms(PAUSE, BUTTONA, BUTTOND)
         if sleep_level == 2:
             print("Deep sleep 1 minute")
-            MAGTAG.set_text(f"sleep: 1min", 3)
+            MAGTAG.set_text(f"deep sleep: 1min", 3)
             PAUSE = alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 60)
             MAGTAG.peripherals.neopixel_disable = True
             alarm.exit_and_deep_sleep_until_alarms(PAUSE)

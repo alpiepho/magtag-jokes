@@ -48,8 +48,9 @@ Board will check buttons every second:
 - buttom B - default joke 
 - button D - turn on leds for 30 seconds
 
-If battery level drops to 10%, the device will enter deep sleep for 1 minute between online attempts. This has
-the effect of disabling the buttons and leds.
+By default, if battery level drops to 80%, the device will enter deep sleep for 1 minute between online attempts. This has
+the effect of disabling the buttons and leds.  This feature is disbled if any button is pressed within the first minute, and 
+can be re-enabled by resetting the board.
 
 
 ## Learnings
