@@ -133,6 +133,8 @@ while True:
         MAGTAG.set_text(joke, 2, False)
         MAGTAG.set_text(f".", 3)
 
+    # by not doing this in the first minute, the user
+    # has a chance to use button and change sleep_level to 0
     if loops > 0 and (loops % 60) == 0:
         try:
             print("trying: ", DATA_SOURCE)
@@ -155,9 +157,9 @@ while True:
 
         # put the board to sleep
         if sleep_level == 2:
-            print("Deep sleep 1 minute")
-            MAGTAG.set_text(f"sleep: 1min", 3)
-            PAUSE = alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 60)
+            print("Deep sleep 1 hour")
+            MAGTAG.set_text(f"sleep: 1hr", 3)
+            PAUSE = alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 60 * 60)
             MAGTAG.peripherals.neopixel_disable = True
             alarm.exit_and_deep_sleep_until_alarms(PAUSE)
 
