@@ -73,6 +73,13 @@ can be re-enabled by resetting the board.
 - fix wake on button and use light sleep
 - set font based on string length
 
+## Ideas
+
+- add use of WorldTimeAPI (http://worldtimeapi.org/api/timezone/America)
+- specify time time zone in secrets.py
+- refactor to handle quotes too
+- paramters in secrets.py
+
 ## Reference
 
 Using CP bootloader:
