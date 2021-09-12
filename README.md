@@ -72,6 +72,9 @@ can be re-enabled by resetting the board.
 - [done] finish repo and README
 - fix wake on button and use light sleep
 - set font based on string length
+- as of 9/11, power with led is 100 -> 84% in 24hrs
+- try removing green led
+- try direct to sleep
 
 ## Ideas
 
@@ -79,6 +82,15 @@ can be re-enabled by resetting the board.
 - specify time time zone in secrets.py
 - refactor to handle quotes too
 - paramters in secrets.py
+- refactor variables etc
+- big question, how to select type (joke, general quote, bruce lee quote etc)
+- dip switch for mode (solder or stemma)
+- header with jumpers?
+- flash via stemma (with nfc ?)
+    - https://www.adafruit.com/product/4701 (rfid with 16kbin, 2kb eeprom)
+    - https://www.adafruit.com/product/5146 (32kbit, 4kb words eeprom)
+    - https://www.adafruit.com/product/4470 (4 12bit dac, eeprom??)
+
 
 ## Reference
 

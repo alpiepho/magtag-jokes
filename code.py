@@ -69,14 +69,14 @@ MAGTAG.add_text(
 )
 MAGTAG.preload_font()  # preload characters
 
-MAGTAG.set_text("Bad-Dad-Joke Machine", 0, False)
+MAGTAG.set_text("Bad-Dad-Joke Machine", 0, False) # TODO parameter
 MAGTAG.set_text("battery: ---%", 1, False)
 
 loops = 0
 count = 0
 light_count = 0
 sleep_level = 2
-default_jokes = ["We only tell these to our kids to help them learn...really!"]
+default_jokes = ["We only tell these to our kids to help them learn...really!"] # TODO parameter, refactor
 
 while True:
     time.sleep(1)
@@ -128,7 +128,7 @@ while True:
             from backup_jokes import backup_jokes
             jokes = backup_jokes
         except ImportError:
-            print("Default backup_jokes.py not found on CIRCUITPY")
+            print("Default backup_jokes.py not found on CIRCUITPY") # TODO refactor
         joke = jokes[random.randint(0, len(jokes) - 1)]
         MAGTAG.set_text(joke, 2, False)
         MAGTAG.set_text(f".", 3)
@@ -137,6 +137,7 @@ while True:
     # has a chance to use button and change sleep_level to 0
     if loops > 0 and (loops % 60) == 0:
         try:
+            # TODO reafactor to function based on type (joke, general quote, bruce lee quote etc)
             print("trying: ", DATA_SOURCE)
             MAGTAG.network.connect()
             RESPONSE = MAGTAG.network.requests.get(
