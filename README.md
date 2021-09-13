@@ -83,13 +83,10 @@ can be re-enabled by resetting the board.
 - refactor to handle quotes too
 - paramters in secrets.py
 - refactor variables etc
-- big question, how to select type (joke, general quote, bruce lee quote etc)
-- dip switch for mode (solder or stemma)
-- header with jumpers?
-- flash via stemma (with nfc ?)
-    - https://www.adafruit.com/product/4701 (rfid with 16kbin, 2kb eeprom)
-    - https://www.adafruit.com/product/5146 (32kbit, 4kb words eeprom)
-    - https://www.adafruit.com/product/4470 (4 12bit dac, eeprom??)
+- get quotes
+- get stoic
+- get bruce
+- check jumpers
 
 
 ## Reference

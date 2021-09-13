@@ -3,7 +3,7 @@ import json
 import requests
 
 # Use this utility to create a new backup_jokes files.  backup_jokes.py will be imported
-# into dad_joes.py and used to 'seed' the joke to be displayed while the joke site 
+# into dad_jokes.py and used to 'seed' the joke to be displayed while the joke site 
 # is check.  It also serves as a backuop incase the network connection fails
 
 
