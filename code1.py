@@ -1,5 +1,6 @@
 
-# import board
+import board
+import analogio
 # import json
 import time
 import random
@@ -20,6 +21,8 @@ MAXLEN = 150
 
 MAGTAG = MagTag(status_neopixel=None)
 MAGTAG.peripherals.neopixel_disable = False
+
+adc = analogio.AnalogIn(board.A1)
 
 def get_online_joke(count):
     try:
@@ -173,8 +176,34 @@ messages = []
 message = ""
 
 
-# check jumpers
-# TBD
+# HACK check potentiometer
+# if moving in first 5 seconds, skip deep sleep
+# use range to determine message_type
+value1 = adc.value
+print(value1)
+for i in range(5):
+    time.sleep(1.0)
+    value2 = adc.value
+    print(value2)
+    if abs(value2 - value1) > 500:
+        sleep_level = 1
+        break
+print(f'sleep_level: {sleep_level}')
+
+# range 5000 - 52000
+if value1 < 5000:
+    message_type = "JOKE"
+elif value1 < 20000:
+    message_type = "QUOTE"
+elif value1 < 40000:
+    message_type = "STOIC1"
+else:
+    message_type = "BRUCE"
+print(f'message_type: {message_type}')
+
+
+
+
 
 # initialize based on message type
 if message_type == "JOKE":
