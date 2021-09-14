@@ -1,4 +1,4 @@
-backup_stoics = [
+backup_stoics1 = [
   "To love only what happens, what was destined. No greater harmony. - Marcus Aurelius",
   "Hang on to your youthful enthusiasms - you'll be able to use them better when you're older. - Seneca",
   "Man conquers the world by conquering himself. - Zeno",

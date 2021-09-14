@@ -11,7 +11,6 @@ sleep_level = 2
 message_type = "JOKE"
 # message_type = "QUOTE"
 # message_type = "STOIC1"
-# message_type = "STOIC2"
 # message_type = "BRUCE"
 
 # https://en.wikiquote.org/wiki/Bruce_Lee
@@ -44,7 +43,7 @@ def get_online_joke(count):
         print("Some error occured, retrying! -", e)
         message = messages[random.randint(0, len(messages) - 1)]
         MAGTAG.set_text(message, 2, False)
-        MAGTAG.set_text(f"..", 3)
+        MAGTAG.set_text(f"", 3)
     return count
 
 def get_online_quote(count):
@@ -71,7 +70,7 @@ def get_online_quote(count):
         print("Some error occured, retrying! -", e)
         message = messages[random.randint(0, len(messages) - 1)]
         MAGTAG.set_text(message, 2, False)
-        MAGTAG.set_text(f"..", 3)
+        MAGTAG.set_text(f"", 3)
     return count
 
 
@@ -100,7 +99,7 @@ def get_online_stoic1(count):
         print("Some error occured, retrying! -", e)
         message = messages[random.randint(0, len(messages) - 1)]
         MAGTAG.set_text(message, 2, False)
-        MAGTAG.set_text(f"..", 3)
+        MAGTAG.set_text(f"", 3)
     return count
 
     return count
@@ -109,7 +108,7 @@ def get_online_bruce(count):
     # all quotes in backup
     message = messages[random.randint(0, len(messages) - 1)]
     MAGTAG.set_text(message, 2, False)
-    MAGTAG.set_text(f"..", 3)
+    MAGTAG.set_text(f"", 3)
     return count
 
 
@@ -218,6 +217,12 @@ count = 0
 light_count = 0
 
 while True:
+    if loops == 0:
+        message = messages[random.randint(0, len(messages) - 1)]
+        print(message)
+        MAGTAG.set_text(message, 2, False)
+        MAGTAG.set_text(f".", 3)
+
     time.sleep(1)
 
     # button A - next message
@@ -227,7 +232,7 @@ while True:
     # button B - default joke
     if MAGTAG.peripherals.button_b_pressed:
         MAGTAG.set_text(default_messages[0], 2, False)
-        MAGTAG.set_text(f"...", 3)
+        MAGTAG.set_text(f"", 3)
 
     # button D - night light
     if MAGTAG.peripherals.button_d_pressed:
@@ -257,11 +262,6 @@ while True:
             MAGTAG.set_text(f"battery: {batt:.0f}%", 1, False)
         except:
             pass
-
-    if loops == 0:
-        message = messages[random.randint(0, len(messages) - 1)]
-        MAGTAG.set_text(message, 2, False)
-        MAGTAG.set_text(f".", 3)
 
     # by not doing this in the first minute, the user
     # has a chance to use button and change sleep_level to 0

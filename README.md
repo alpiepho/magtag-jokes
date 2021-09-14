@@ -83,6 +83,7 @@ can be re-enabled by resetting the board.
 - as of 9/11, power with led is 100 -> 84% in 24hrs
 - try removing green led
 - try direct to sleep
+- if too long, scroll
 
 ## Ideas
 
