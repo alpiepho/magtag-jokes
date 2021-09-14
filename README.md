@@ -21,6 +21,14 @@ Files:
 - get_jokes.py - script to build new backup_jokes.py
 - libs - CircuitPython libraries required
 - sample_secrets.py - place at root of CIRCUITPY, contains wifi credentials, DO NOT COMMIT
+- code1.py - alternative that can show other quotes WARNING: must alter message_type
+- backup_quotes.py - quotes from zenquotes
+- get_quotes.py - script to build new backup_quotes.py
+- backup_stoics1.py - quotes from stoicquotesapi.com, classical authors
+- get_stoics1.py - script to build new backup_stoics1.py
+- backup_bruce.py - quotes from bruce lee
+- get_bruce.py - script to build new backup_bruce.py
+
 
 Rough outline:
 - set up text areas

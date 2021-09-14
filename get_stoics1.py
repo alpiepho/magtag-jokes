@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from code1 import MAXLEN
 import json
 import requests
 import time
@@ -25,7 +24,8 @@ i = 0
 while i < NUM:
   try:
     response = requests.get("https://stoicquotesapi.com/v1/api/quotes/random")
-    temp = response.json()['body'] + " - " + ['author']
+    print(response)
+    temp = response.json()['body'] + " - " + response.json()['author']
     print(temp)
     # if "Too many requests" in temp:
     #     raise Exception("Too many requests") 
@@ -36,9 +36,9 @@ while i < NUM:
   except Exception as e:
     print(e)
 
-  # # Requests are restricted to 5 per 30 second period
-  # print("sleep 5s")
-  # time.sleep(5)
+  # Requests are restricted to 5 per 30 second period
+  print("sleep 5s")
+  time.sleep(5)
 
 with open('backup_stoics.py', 'w') as writer:
   writer.write("backup_stoics = " + json.dumps(backup_stoics, indent=2))

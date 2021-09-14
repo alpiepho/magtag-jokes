@@ -7,6 +7,15 @@ import alarm
 import terminalio
 from adafruit_magtag.magtag import MagTag
 
+sleep_level = 2
+message_type = "JOKE"
+# message_type = "QUOTE"
+# message_type = "STOIC1"
+# message_type = "STOIC2"
+# message_type = "BRUCE"
+
+# https://en.wikiquote.org/wiki/Bruce_Lee
+# #mw-content-text > div.mw-parser-output > ul > li
 
 MAXLEN = 150
 
@@ -66,7 +75,7 @@ def get_online_quote(count):
     return count
 
 
-def get_online_stoic(count):
+def get_online_stoic1(count):
     try:
         DATA_SOURCE = "https://stoicquotesapi.com/v1/api/quotes/random"
         print("trying: ", DATA_SOURCE)
@@ -76,7 +85,7 @@ def get_online_stoic(count):
         )
         VALUE = RESPONSE.json()
         # {"id":42,"body":"If a man knows not to which port he sails, no wind is favorable.","author_id":2,"author":"Seneca"}
-        temp = VALUE['body'] + " - " + ['author']
+        temp = VALUE['body'] + " - " + VALUE['author']
         print(temp)
         # if "Too many requests" in temp:
         #     raise Exception("Too many requests") 
@@ -97,6 +106,10 @@ def get_online_stoic(count):
     return count
 
 def get_online_bruce(count):
+    # all quotes in backup
+    message = messages[random.randint(0, len(messages) - 1)]
+    MAGTAG.set_text(message, 2, False)
+    MAGTAG.set_text(f"..", 3)
     return count
 
 
@@ -160,8 +173,6 @@ backup_messages = []
 messages = []
 message = ""
 
-sleep_level = 2
-message_type = "JOKE" # QUOTE, STOIC, BRUCE
 
 # check jumpers
 # TBD
@@ -183,14 +194,14 @@ if message_type == "QUOTE":
         messages = backup_quotes
     except ImportError:
         print("Default backup_quotes.py not found on CIRCUITPY")
-if message_type == "STOIC":
-    MAGTAG.set_text("Stoic Quotes", 0, False)
-    messages = ["Stoic Quotes..."]
+if message_type == "STOIC1":
+    MAGTAG.set_text("Clasical Stoic Quotes", 0, False)
+    messages = ["Clasical Stoic Quotes..."]
     try:
-        from backup_stoics import backup_stoics
-        messages = backup_stoics
+        from backup_stoics1 import backup_stoics1
+        messages = backup_stoics1
     except ImportError:
-        print("Default backup_stoics.py not found on CIRCUITPY")
+        print("Default backup_stoics1.py not found on CIRCUITPY")
 if message_type == "BRUCE":
     MAGTAG.set_text("Bruce Lee Wisdom", 0, False)
     messages = ["Bruce was the man!"]
@@ -254,13 +265,13 @@ while True:
 
     # by not doing this in the first minute, the user
     # has a chance to use button and change sleep_level to 0
-    if loops > 0 and (loops % 60) == 0:
+    if (loops % 60) == 0:
         if message_type == "JOKE":
             count = get_online_joke(count)
         if message_type == "QUOTE":
             count = get_online_quote(count)
-        if message_type == "STOIC":
-            count = get_online_stoic(count)
+        if message_type == "STOIC1":
+            count = get_online_stoic1(count)
         if message_type == "BRUCE":
             count = get_online_bruce(count)
 
