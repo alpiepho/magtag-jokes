@@ -15,6 +15,14 @@ the refridgerator to allow "sharing" them daily?
 <br>
 <br>
 
+A slider was added to the left side (Picture update pending) to select various options:
+1. Dad Jokes
+2. Quotes
+3. Stoic Quotes
+4. Bruce Lee Quotes
+5. (also Bruce Lee Quotes)
+
+<br>
 Files:
 - code.py - main code file
 - backup_jokes.py - set of jokes to show before online jokes found
@@ -60,11 +68,17 @@ By default, if battery level drops to 80%, the device will enter deep sleep for 
 the effect of disabling the buttons and leds.  This feature is disbled if any button is pressed within the first minute, and 
 can be re-enabled by resetting the board.
 
+The slider (resistor) attached to the left, uses one of the STEMMA 3 pin JST connectors for ground, 5v and Analog input.  The analog input is
+measured on each wake to determine which set of data to show.
+
 
 ## Learnings
 
 - Using e-Ink device is a challenge because it is slow to update
 - Connecting to web api is also a challenge, since it blocks the main loop 2-10 seconds
+- as of 9/11, power with led is 100 -> 84% in 24hrs
+- [done] try removing green led - physically removed, actually shattered when I pulled it off :(
+- [done] try direct to sleep
 
 ## TODO List
 
@@ -78,24 +92,28 @@ can be re-enabled by resetting the board.
 - [done] add light button to dad joke
 - [done] copy libs to repo
 - [done] finish repo and README
-- fix wake on button and use light sleep
-- set font based on string length
-- as of 9/11, power with led is 100 -> 84% in 24hrs
-- try removing green led
-- try direct to sleep
+- [done] fix wake on button and use light sleep
+- [done] add more jokes
 - if too long, scroll
+- set font based on string length
+- add picture with slider
+- create background panel to mark sliders and instructions
+
+
 
 ## Ideas
 
-- add use of WorldTimeAPI (http://worldtimeapi.org/api/timezone/America)
-- specify time time zone in secrets.py
-- refactor to handle quotes too
-- paramters in secrets.py
-- refactor variables etc
-- get quotes
-- get stoic
-- get bruce
-- check jumpers
+- [needs realtime clock] add use of WorldTimeAPI (http://worldtimeapi.org/api/timezone/America)
+- [needs realtime clock] specify time time zone in secrets.py
+- [done] refactor to handle quotes too
+- [done] paramters in secrets.py
+- [done] refactor variables etc
+- [done] get quotes
+- [done] get stoic
+- [done] get bruce
+- [done] check jumpers
+- create flutter app with same look and random from backup*
+- create Github action to update backups
 
 
 ## Reference

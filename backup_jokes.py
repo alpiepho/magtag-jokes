@@ -1,4 +1,6 @@
 backup_jokes = [
+  "What concert only costs 45 cents to get in?\r\nA 50 cent concert with a guest appearance from nickelback",  # from j
+  "What did one dorito farmer say to the other dorito farmer?\r\nCool Ranch", # from lexi
   "Did you hear about the new restaurant on the moon? The food is great, but there\u2019s just no atmosphere.",
   "What do you do when your bunny gets wet? You get your hare dryer.",
   "My boss told me that he was going to fire the person with the worst posture. I have a hunch, it might be me.",
